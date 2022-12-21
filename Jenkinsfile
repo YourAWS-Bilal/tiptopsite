@@ -12,7 +12,7 @@ pipeline {
         stage('Git Repo') {
             steps {
                 sh 'sudo chmod 777 -R /var/jenkins_home/workspace/CICDWORKFLOW/'
-                git branch: 'main', url: 'https://github.com/YourAWS-Bilal/TipTop'
+                git branch: 'main', url: 'https://github.com/YourAWS-Bilal/tiptopsite'
              
             }
         }
