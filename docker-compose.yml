@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  nginx-service:
+ nginx-service:
     image: nginx:stable-alpine
     container_name: nginx-container
     ports:
@@ -13,7 +13,7 @@ services:
       - db
     networks:
       - nginx-php81-node
-php81-service:
+ php81-service:
   build:
     context: .
     dockerfile: ./php/Dockerfile
@@ -24,7 +24,7 @@ php81-service:
     - ./public:/usr/share/nginx/html
   networks:
     - nginx-php81-node
-nodepack-service:
+ nodepack-service:
   image: node:latest
   container_name: node-container
   volumes:
@@ -32,7 +32,7 @@ nodepack-service:
   working_dir: /usr/share/nginx/html
   networks:
     - nginx-php81-node
-db:
+ db:
   networks:
     - nginx-php81-node
   image: postgres:${POSTGRES_VERSION:-13}-alpine
