@@ -7,11 +7,11 @@ services:
     ports:
       - 8080:80
     volumes:
-      - ./public:/usr/share/nginx/html
+      - ./public:/usr/share/ngindbx/html
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php81-service
-      - database
+      - db
     networks:
       - nginx-php81-node
 php81-service:
@@ -33,7 +33,7 @@ nodepack-service:
   working_dir: /usr/share/nginx/html
   networks:
     - nginx-php81-node
-database:
+db:
   networks:
     - nginx-php81-node
   image: postgres:${POSTGRES_VERSION:-13}-alpine
