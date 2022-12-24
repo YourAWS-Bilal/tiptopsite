@@ -25,7 +25,7 @@ php81-service:
     - ./public:/usr/share/nginx/html
   networks:
     - nginx-php81-node
-node-service:
+nodepack-service:
   image: node:latest
   container_name: node-container
   volumes:
