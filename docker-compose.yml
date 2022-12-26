@@ -1,4 +1,8 @@
 version: "3.9"
+
+networks:
+    nginx-php74-mysql8-node:
+    
 services:
  nginx-service:
     build:
@@ -43,8 +47,6 @@ services:
     POSTGRES_USER: ${POSTGRES_USER:-symfony}
   volumes:
     - db-data:/var/lib/postgresql/data:rw
-    
-networks:
-  nginx-php81-node: null
+
 volumes:
   db-data: null
