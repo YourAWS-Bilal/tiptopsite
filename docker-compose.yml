@@ -1,7 +1,7 @@
 version: "3.9"
 
 networks:
-    nginx-php74-mysql8-node:
+    nginx-php81-node:
     
 services:
  nginx-service:
