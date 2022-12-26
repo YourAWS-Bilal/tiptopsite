@@ -5,6 +5,8 @@ services:
       context: .
       dockerfile: ./nginx/Dockerfile
     container_name: nginx-container
+    volumes:
+      - ./public:/usr/share/nginx/html
     ports:
       - 80:80
     depends_on:
