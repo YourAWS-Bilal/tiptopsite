@@ -1,7 +1,6 @@
 version: "3.9"
 
-networks:
-    nginx-php81-node:
+
     
 services:
  nginx-service:
@@ -16,8 +15,7 @@ services:
     depends_on:
       - php81-service
       - database
-    networks:
-      - nginx-php81-node
+
  php81-service:
   build:
     context: .
@@ -25,21 +23,16 @@ services:
   container_name: php81-container
   ports:
     - 9000:9000
-  volumes:
-    - ./public:/usr/share/nginx/html
-  networks:
-    - nginx-php81-node
+  depends_on:
+    - php81-service
+    - database  
  node-service:
   image: node:latest
   container_name: node-container
   volumes:
     - ./public:/usr/share/nginx/html
   working_dir: /usr/share/nginx/html
-  networks:
-    - nginx-php81-node
  database:
-  networks:
-    - nginx-php81-node
   image: postgres:${POSTGRES_VERSION:-13}-alpine
   environment:
     POSTGRES_DB: ${POSTGRES_DB:-app}
