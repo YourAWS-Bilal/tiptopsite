@@ -11,3 +11,5 @@ WORKDIR /usr/share/nginx/html
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash
+
+COPY . /usr/share/nginx/html
